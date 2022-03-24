@@ -1,0 +1,55 @@
+package heap;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class heapfile {
+	public static void main(String[] args) {
+		String file_name="D:\\database assignment 1\\artist.csv";
+		BufferedReader br= null;
+		String line = "";
+		int count=1;
+		
+		try {
+			List< List<String> > data = new ArrayList<>();
+			br= new BufferedReader(new FileReader(file_name));
+			while((line = br.readLine())!=null) {
+//				System.out.println("count"+count+"line"+line+"/n");
+				
+				List<String> lineData = Arrays.asList(line.split(","));//splitting lines
+				data.add(lineData);
+				count=count +1;
+				line = br.readLine();
+			}
+			
+				System.out.println(data.size()+"-------------");
+				
+//				for(List<String> list : data)
+//				{
+//					for(String str : list)
+//						System.out.print(count+str + " ");
+//					
+//					System.out.println();
+//				}
+				
+			
+		}
+		
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				reader.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+}
